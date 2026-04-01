@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b0m5vienngkml"]
+
+[ext_resource type="Script" uid="uid://jicdjejrmq3b" path="res://character_body_3d.gd" id="1_a202f"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4xowi"]
+
+[sub_resource type="Sky" id="Sky_a202f"]
+sky_material = SubResource("ProceduralSkyMaterial_4xowi")
+
+[sub_resource type="Environment" id="Environment_noarx"]
+background_mode = 2
+sky = SubResource("Sky_a202f")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_noarx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a0tk4"]
+
+[node name="Node3D" type="Node3D" unique_id=35107880]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=393476162]
+transform = Transform3D(0.4103455, -0.46000713, 0.78740716, 0.0024015277, 0.8639933, 0.5034976, -0.911927, -0.20471701, 0.35564047, 7.2913885, 5.842884, 3.4438524)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=169003251]
+environment = SubResource("Environment_noarx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=37951291]
+transform = Transform3D(0.99995106, -0.0005941158, 0.0098875435, -0.005239514, 0.81539637, 0.5788796, -0.008406188, -0.578903, 0.8153533, 1.2260923, 3.0467677, 4.316541)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=240219693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11534321, 2.4037228, -5.0562363)
+size = Vector3(9.996521, 6.3602295, 2.442871)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1275757311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10635936, 0.063737154, 1.1103747)
+use_collision = true
+size = Vector3(10, 1, 10)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1172919819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0067362785, 2.5130424, 0)
+script = ExtResource("1_a202f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1114054149]
+shape = SubResource("CapsuleShape3D_noarx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1462832633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56229186, 1.5020666, -0.043457747)
+mesh = SubResource("CapsuleMesh_a0tk4")
